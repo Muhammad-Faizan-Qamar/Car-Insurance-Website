@@ -1,0 +1,328 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home Page{% endblock %}
+
+{% block body %}
+
+<!-- HERO SECTION -->
+<section class="hero-section" style="background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), url('{% static 'images/hero-banner.png' %}') no-repeat center center; background-size: cover; padding: 120px 0 80px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0 fade-in">
+                <h1 class="display-4 font-weight-bold text-white mb-4">Your Auto Repair Partner</h1>
+                <p class="lead text-light mb-4">
+                    From diagnostics to full engine repair, we deliver fast, reliable, and affordable service to keep your car running smoothly.
+                </p>
+                <div class="d-flex flex-wrap">
+                    <a href="{% url 'services' %}" class="btn btn-primary btn-lg mr-3 mb-3" target="_blank">
+                        <i class="fas fa-tools mr-2"></i>Our Services 
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg mb-3" target="_blank">
+                        <i class="fas fa-phone-alt mr-2"></i>Book Now
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 fade-in" style="animation-delay: 0.3s;">
+                <img src="{% static 'images/services-5.png' %}" alt="Car Repair" class="img-fluid" style="filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4 mb-md-0 fade-in">
+                <div class="d-flex">
+                    <div class="mr-4 text-primary">
+                        <i class="fas fa-clock fa-3x"></i>
+                    </div>
+                    <div>
+                        <h4 class="mb-3">Quick Service</h4>
+                        <p class="mb-0">Most repairs completed within 24 hours with our efficient service system.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0 fade-in" style="animation-delay: 0.2s;">
+                <div class="d-flex">
+                    <div class="mr-4 text-primary">
+                        <i class="fas fa-dollar-sign fa-3x"></i>
+                    </div>
+                    <div>
+                        <h4 class="mb-3">Fair Pricing</h4>
+                        <p class="mb-0">No hidden fees. We provide transparent pricing before any work begins.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in" style="animation-delay: 0.4s;">
+                <div class="d-flex">
+                    <div class="mr-4 text-primary">
+                        <i class="fas fa-shield-alt fa-3x"></i>
+                    </div>
+                    <div>
+                        <h4 class="mb-3">Warranty</h4>
+                        <p class="mb-0">All our repairs come with a 12-month warranty for your peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center fade-in">
+                <h2 class="section-title">Why Choose AutoFix?</h2>
+                <p class="lead">We combine expertise, technology, and customer care for the best auto service experience.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4 fade-in">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-user-tie fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Expert Mechanics</h4>
+                        <p class="mb-0">Our ASE-certified technicians have an average of 10+ years experience working on all makes and models.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 fade-in" style="animation-delay: 0.2s;">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-microchip fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Latest Technology</h4>
+                        <p class="mb-0">We invest in cutting-edge diagnostic equipment to accurately identify and fix issues quickly.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 fade-in" style="animation-delay: 0.4s;">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-medal fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Quality Guarantee</h4>
+                        <p class="mb-0">We stand behind our work with a satisfaction guarantee and 12-month warranty on all repairs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="py-5 bg-white">
+    <div class="container py-5">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center fade-in">
+                <h2 class="section-title">Our Services</h2>
+                <p class="lead">Comprehensive auto services to keep your vehicle in top condition.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 fade-in">
+                <div class="card service-card h-100 border-0 shadow-sm">
+                    <img src="{% static 'images/services-10.png' %}" class="card-img-top" alt="Oil Change">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Oil & Filter Change</h5>
+                        <p class="card-text">Essential maintenance to keep your engine running clean and efficiently.</p>
+                        <div class="mt-auto">
+                            <a href="{% url 'services' %}" class="btn btn-sm btn-outline-primary w-100" target="_blank">View Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 fade-in" style="animation-delay: 0.1s;">
+                <div class="card service-card h-100 border-0 shadow-sm">
+                    <img src="{% static 'images/services-8.png' %}" class="card-img-top" alt="Brake Service">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Brake Service</h5>
+                        <p class="card-text">Complete inspection and repair to ensure your safety on the road.</p>
+                        <div class="mt-auto">
+                            <a href="{% url 'services' %}" class="btn btn-sm btn-outline-primary w-100" target="_blank">View Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 fade-in" style="animation-delay: 0.2s;">
+                <div class="card service-card h-100 border-0 shadow-sm">
+                    <img src="{% static 'images/services-9.png' %}" class="card-img-top" alt="Battery Service">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Battery Service</h5>
+                        <p class="card-text">Testing, charging and replacement to prevent unexpected breakdowns.</p>
+                        <div class="mt-auto">
+                            <a href="{% url 'services' %}" class="btn btn-sm btn-outline-primary w-100" target="_blank">View Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 fade-in" style="animation-delay: 0.3s;">
+                <div class="card service-card h-100 border-0 shadow-sm">
+                    <img src="{% static 'images/services-7.png' %}" class="card-img-top" alt="AC Service">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">AC Service</h5>
+                        <p class="card-text">Keep cool with our professional air conditioning maintenance and repair.</p>
+                        <div class="mt-auto">
+                            <a href="{% url 'services' %}" class="btn btn-sm btn-outline-primary w-100" target="_blank">View Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4 fade-in" style="animation-delay: 0.4s;">
+            <a href="{% url 'services' %}" class="btn btn-primary btn-lg" target="_blank">
+                <i class="fas fa-list mr-2"></i>View All Services
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center fade-in">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="lead">Don't just take our word for it - hear from our satisfied customers.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4 fade-in">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="mb-4">
+                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-quote-left text-white fa-lg"></i>
+                            </div>
+                        </div>
+                        <p class="mb-4">"AutoFix repaired my car in one day when other shops said it would take a week. Their communication was excellent and the price was fair."</p>
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="mb-2">
+                                <img src="{% static 'images/client-1.jfif' %}" class="rounded-circle" width="60" height="60" alt="Client">
+                            </div>
+                            <div>
+                                <h6 class="mb-0 font-weight-bold">Hammad I.</h6>
+                                <small class="text-muted">Melbourne</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 fade-in" style="animation-delay: 0.2s;">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="mb-4">
+                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-quote-left text-white fa-lg"></i>
+                            </div>
+                        </div>
+                        <p class="mb-4">"They diagnosed my engine issue in minutes when the dealership couldn't figure it out after 3 visits. Truly professional service with honest advice."</p>
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="mb-2">
+                                <img src="{% static 'images/client-2.jfif' %}" class="rounded-circle" width="60" height="60" alt="Client">
+                            </div>
+                            <div>
+                                <h6 class="mb-0 font-weight-bold">Talha A.</h6>
+                                <small class="text-muted">Sydney</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 fade-in" style="animation-delay: 0.4s;">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="mb-4">
+                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-quote-left text-white fa-lg"></i>
+                            </div>
+                        </div>
+                        <p class="mb-4">"Clean shop, friendly staff, and quick service. They explained everything clearly and didn't push unnecessary repairs. Will definitely come back."</p>
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="mb-2">
+                                <img src="{% static 'images/client-3.jfif' %}" class="rounded-circle" width="60" height="60" alt="Client">
+                            </div>
+                            <div>
+                                <h6 class="mb-0 font-weight-bold">Zeeshan M.</h6>
+                                <small class="text-muted">Brisbane</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- APPOINTMENT SECTION -->
+<section class="py-5 bg-primary text-white">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0 fade-in">
+                <h2 class="display-5 font-weight-bold mb-4">Ready for Your Next Service?</h2>
+                <p class="lead mb-4">We offer flexible scheduling to fit your busy life. Book your appointment online or give us a call.</p>
+                <div class="d-flex flex-wrap">
+                    <a href="{% url 'contact' %}" class="btn btn-light btn-lg mr-3 mb-3" target="_blank">
+                        <i class="fas fa-calendar-check mr-2"></i>Book Now
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg mb-3" target="_blank">
+                        <i class="fas fa-phone-alt mr-2"></i>(02) 3456 7890
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 fade-in" style="animation-delay: 0.3s;">
+                <img src="{% static 'images/hero-banner.png' %}" alt="Car Service" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BRANDS SECTION -->
+<section class="py-5 bg-white">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-12 text-center fade-in">
+                <h4 class="mb-5">We Service All Makes & Models</h4>
+                <div class="d-flex flex-wrap justify-content-center align-items-center">
+                    <img src="{% static 'images/toyota-1.jfif' %}" class="img-fluid mx-4 my-3" style="height: 40px; filter: grayscale(100%) opacity(60%);" alt="Toyota">
+                    <img src="{% static 'images/Ford-1.jfif' %}" class="img-fluid mx-4 my-3" style="height: 40px; filter: grayscale(100%) opacity(60%);" alt="Ford">
+                    <img src="{% static 'images/honda.jfif' %}" class="img-fluid mx-4 my-3" style="height: 40px; filter: grayscale(100%) opacity(60%);" alt="Honda">
+                    <img src="{% static 'images/bmw.jfif' %}" class="img-fluid mx-4 my-3" style="height: 40px; filter: grayscale(100%) opacity(60%);" alt="BMW">
+                    <img src="{% static 'images/mercedes.jfif' %}" class="img-fluid mx-4 my-3" style="height: 40px; filter: grayscale(100%) opacity(60%);" alt="Mercedes">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAP SECTION -->
+<section class="py-0 mb-5">
+    <div class="container-fluid px-0">
+        <div class="row no-gutters">
+            <div class="col-md-6 fade-in">
+                <div class="p-5 bg-dark text-white h-100">
+                    <h3 class="mb-4">Visit Our Workshop</h3>
+                    <p class="mb-4"><i class="fas fa-map-marker-alt mr-2 text-primary"></i> 21 King Street, Melbourne, VIC 3000, Australia</p>
+                    <p class="mb-4"><i class="fas fa-clock mr-2 text-primary"></i> <strong>Mon-Fri:</strong> 8:00 AM - 6:00 PM<br><strong>Sat:</strong> 9:00 AM - 4:00 PM<br><strong>Sun:</strong> Closed</p>
+                    <p class="mb-4"><i class="fas fa-phone-alt mr-2 text-primary"></i> (02) 3456 7890</p>
+                    <p class="mb-4"><i class="fas fa-envelope mr-2 text-primary"></i> info@autofix.com.au</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-primary mt-3">Get Directions</a>
+                </div>
+            </div>
+            <div class="col-md-6 fade-in" style="animation-delay: 0.2s;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509551!2d144.9537353153162!3d-37.8162797797517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f06df8fd%3A0xa00fdf0fa215c000!2s21%20King%20St%2C%20Melbourne%20VIC%203000%2C%20Australia!5e0!3m2!1sen!2sau!4v1627203465487!5m2!1sen!2sau"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

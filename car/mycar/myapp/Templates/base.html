@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AutoFix - Your Trusted Car Mechanic{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Mulish:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --light-color: #f1faee;
+            --accent-color: #a8dadc;
+            --dark-color: #1d3557;
+            --text-color: #333;
+            --white: #fff;
+            --font-main: 'Mulish', sans-serif;
+            --font-heading: 'Chakra Petch', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 1px 25px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: #e90b1a;
+            padding: auto;
+        }
+
+        .btn-outline-light {
+            border: 2px solid var(--white);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--white);
+            color: var(--secondary-color);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background-color: var(--secondary-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Navbar Styles */
+        .main-navbar {
+            background-color: var(--secondary-color) !important;
+            padding: 0;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            padding: 10px 20px;
+            margin: 0 5px;
+            transition: var(--transition);
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: var(--white) !important;
+            opacity: 0.8;
+        }
+
+        /* Remove active state coloring */
+        .navbar-light .navbar-nav .active>.nav-link {
+            color: var(--white) !important;
+            font-weight: 600;
+        }
+
+        .navbar-light .navbar-toggler {
+            border-color: var(--white);
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Footer Styles */
+        .main-footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 80px 0 20px;
+            /* Increased top padding from 60px to 80px */
+            position: relative;
+        }
+
+        .main-footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: white var(--primary-color);
+        }
+
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .footer-logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .footer-heading {
+            color: var(--white);
+            font-family: var(--font-heading);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links a {
+            color: var(--white) !important;
+            display: block;
+            margin-bottom: 12px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color) !important;
+            transform: translateX(5px);
+        }
+
+        /* Remove any active state coloring */
+        .footer-links a:active,
+        .footer-links a:focus,
+        .footer-links a.active {
+            color: var(--white) !important;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .contact-info i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title:after {
+                width: 70%;
+                left: 15%;
+            }
+
+            .navbar-light .navbar-nav .nav-link {
+                padding: 8px 15px;
+            }
+
+            .footer-heading {
+                margin-top: 30px;
+            }
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap py-2">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'images/logo.png' %}" alt="AutoFix Logo" style="height: 45px;">
+                    </a>
+                </div>
+
+                <!-- Navbar and Search -->
+                <div class="d-flex align-items-center flex-grow-1 justify-content-end">
+                    <!-- Navbar -->
+                    <nav class="navbar navbar-expand-lg navbar-light main-navbar p-0">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav mr-3">
+                                <li class="nav-item {% if request.path == '/' %}active{% endif %}">
+                                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li class="nav-item {% if request.path == '/about/' %}active{% endif %}">
+                                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                                </li>
+                                <li class="nav-item {% if request.path == '/services/' %}active{% endif %}">
+                                    <a class="nav-link" href="{% url 'services' %}">Services</a>
+                                </li>
+                                <li class="nav-item {% if request.path == '/contact/' %}active{% endif %}">
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                </li>
+                                <li class="nav-item {% if request.path == '/login/' %}active{% endif %}">
+                                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <!-- Search Bar -->
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search services..."
+                            aria-label="Search">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-logo">
+                        <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt="AutoFix Logo"></a>
+                    </div>
+                    <p>AutoFix is Melbourne's premier auto repair center with over 15 years of experience. We provide
+                        top-quality service with a commitment to excellence.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="{% url 'home' %}">Home</a>
+                        <a href="{% url 'about' %}">About Us</a>
+                        <a href="{% url 'services' %}">Services</a>
+                        <a href="{% url 'contact' %}">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Our Services</h4>
+                    <div class="footer-links">
+                        <a href="{% url 'services' %}">Engine Repair</a>
+                        <a href="{% url 'services' %}">Brake Service</a>
+                        <a href="{% url 'services' %}">Oil Change</a>
+                        <a href="{% url 'services' %}">Battery Replacement</a>
+                        <a href="{% url 'services' %}">AC Service</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 21 King Street, Melbourne, VIC 3000, Australia</p>
+                        <p><i class="fas fa-phone-alt"></i> (02) 3456 7890</p>
+                        <p><i class="fas fa-envelope"></i> info@autofix.com.au</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</p>
+                        <p><i class="fas fa-clock"></i> Sat: 9:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 AutoFix. All Rights Reserved. | Designed with <i class="fas fa-heart text-danger"></i> by
+                    AutoFix Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script>
+        // Add active class to current nav item (but won't change color due to our CSS)
+        $(document).ready(function () {
+            $('.nav-link').each(function () {
+                if (this.href === window.location.href) {
+                    $(this).addClass('active');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            $('a[href*="#"]').on('click', function (e) {
+                e.preventDefault();
+                $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top - 80,
+                    },
+                    500,
+                    'linear'
+                );
+            });
+
+            // Animation on scroll
+            $(window).scroll(function () {
+                $('.fade-in').each(function () {
+                    var position = $(this).offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+
+                    if (scroll > position - windowHeight + 200) {
+                        $(this).addClass('animated');
+                    }
+                });
+            });
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

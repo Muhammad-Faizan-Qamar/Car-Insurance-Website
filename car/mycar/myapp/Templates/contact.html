@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Page {% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Custom styles for contact page */
+    .contact-info p,
+    .contact-info h5,
+    .contact-info a:not(.btn) {
+    }
+    
+    .contact-info a:hover {
+        color: var(--primary-color) !important;
+    }
+    
+    .contact-card {
+        background-color: var(--light-color);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<!-- Contact Hero Section -->
+<section class="hero-section" style="background: linear-gradient(rgba(29, 53, 87, 0.9), rgba(29, 53, 87, 0.9)), url('{% static 'images/hero-banner.png' %}') no-repeat center center; background-size: cover; padding: 100px 0 60px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center fade-in">
+                <h1 class="display-4 font-weight-bold text-white mb-3">Contact AutoFix</h1>
+                <p class="lead text-light mb-4">
+                    Have questions or need to schedule a service? Our team is ready to help you with all your automotive needs.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-5 bg-white">
+    <div class="container py-5">
+        <!-- Success Message (hidden by default) -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-lg-5 mb-5 mb-lg-0 fade-in">
+                <div class="contact-card p-4 h-100">
+                    <h2 class="section-title mb-4">Our Contact Info</h2>
+                    <div class="contact-info">
+                        <div class="d-flex mb-4">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-map-marker-alt fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Our Location</h5>
+                                <p class="mb-0">21 King Street, Melbourne<br>VIC 3000, Australia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-phone-alt fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Phone Numbers</h5>
+                                <p class="mb-1">Service: <a href="tel:+61234567890">(02) 3456 7890</a></p>
+                                <p class="mb-0">Emergency: <a href="tel:+61412345678">0412 345 678</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-envelope fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Email Address</h5>
+                                <p class="mb-0"><a href="mailto:info@autofix.com.au">info@autofix.com.au</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="mr-4 text-primary">
+                                <i class="fas fa-clock fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Working Hours</h5>
+                                <p class="mb-1">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p class="mb-0">Saturday: 9:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-lg-7 fade-in" style="animation-delay: 0.2s;">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-5">
+                        <h2 class="section-title mb-4">Send Us a Message</h2>
+                        <form method="post" id="contactForm">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="form-group">
+                                    <label for="service" class="form-label">Service Needed</label>
+                                    <select class="form-control" id="service" name="service">
+                                        <option value="">Select a service</option>
+                                        <option value="oil-change">Oil Change</option>
+                                        <option value="brake-service">Brake Service</option>
+                                        <option value="engine-repair">Engine Repair</option>
+                                        <option value="ac-service">AC Service</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Your Message *</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-0 mb-5">
+    <div class="container-fluid px-0">
+        <div class="row no-gutters">
+            <div class="col-md-6 fade-in">
+                <div class="p-5 bg-dark text-white h-100">
+                    <h3 class="mb-4">Visit Our Workshop</h3>
+                    <p class="mb-4"><i class="fas fa-map-marker-alt mr-2 text-primary"></i> 21 King Street, Melbourne, VIC 3000, Australia</p>
+                    <p class="mb-4"><i class="fas fa-clock mr-2 text-primary"></i> <strong>Mon-Fri:</strong> 8:00 AM - 6:00 PM<br><strong>Sat:</strong> 9:00 AM - 4:00 PM<br><strong>Sun:</strong> Closed</p>
+                    <p class="mb-4"><i class="fas fa-phone-alt mr-2 text-primary"></i> (02) 3456 7890</p>
+                    <p class="mb-4"><i class="fas fa-envelope mr-2 text-primary"></i> info@autofix.com.au</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-primary mt-3">Get Directions</a>
+                </div>
+            </div>
+            <div class="col-md-6 fade-in" style="animation-delay: 0.2s;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509551!2d144.9537353153162!3d-37.8162797797517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f06df8fd%3A0xa00fdf0fa215c000!2s21%20King%20St%2C%20Melbourne%20VIC%203000%2C%20Australia!5e0!3m2!1sen!2sau!4v1627203465487!5m2!1sen!2sau"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Optional: Add JavaScript to show success message without page reload
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Here you would typically send the form data to the server
+        // For demonstration, we'll just show the success message
+        
+        // Show success message
+        const successMessage = document.createElement('div');
+        successMessage.className = 'alert alert-success alert-dismissible fade show';
+        successMessage.innerHTML = `
+            Your message has been sent successfully!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        `;
+        
+        // Insert the message before the form
+        this.parentNode.insertBefore(successMessage, this);
+        
+        // Reset the form
+        this.reset();
+        
+        // Scroll to the success message
+        successMessage.scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+{% endblock %}

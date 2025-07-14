@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Page{% endblock %}
+
+{% block body %}
+<!-- About Hero Section -->
+<section class="hero-section" style="background: linear-gradient(rgba(29, 53, 87, 0.9), rgba(29, 53, 87, 0.9)), url('{% static 'images/hero-banner.png' %}') no-repeat center center; background-size: cover; padding: 100px 0 60px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center fade-in">
+                <h1 class="display-4 font-weight-bold text-white mb-3">About AutoFix</h1>
+                <p class="lead text-light mb-4">
+                    Discover our story, mission, and what makes us Melbourne's trusted auto service provider.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section py-5 bg-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0 fade-in">
+                <img src="{% static 'images/about-banner.png' %}" alt="About AutoFix" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6 ps-lg-5 fade-in" style="animation-delay: 0.2s;">
+                <h2 class="mb-4">Our Commitment to Excellence</h2>
+                <p class="lead mb-4">We are committed to delivering exceptional quality in car maintenance. Our
+                    certified technicians ensure meticulous service using high-grade parts and equipment.</p>
+                <p class="mb-4">Adhering to strict quality standards, we guarantee your car's optimal performance and
+                    longevity.</p>
+
+                <div class="row mt-4">
+                    <div class="col-6 mb-4 fade-in" style="animation-delay: 0.3s;">
+                        <div class="stat-item p-3 text-center bg-light rounded">
+                            <strong class="display-4 d-block text-primary">8K+</strong>
+                            <span>Happy Clients</span>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-4 fade-in" style="animation-delay: 0.4s;">
+                        <div class="stat-item p-3 text-center bg-light rounded">
+                            <strong class="display-4 d-block text-primary">22+</strong>
+                            <span>Instruments</span>
+                        </div>
+                    </div>
+                    <div class="col-6 fade-in" style="animation-delay: 0.5s;">
+                        <div class="stat-item p-3 text-center bg-light rounded">
+                            <strong class="display-4 d-block text-primary">50+</strong>
+                            <span>Years in market</span>
+                        </div>
+                    </div>
+                    <div class="col-6 fade-in" style="animation-delay: 0.6s;">
+                        <div class="stat-item p-3 text-center bg-light rounded">
+                            <strong class="display-4 d-block text-primary">99%</strong>
+                            <span>Projects completed</span>
+                        </div>
+                    </div>
+
+                    <!-- Contact Us Button -->
+                    <div class="mt-4 fade-in" style="animation-delay: 0.7s;">
+                        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg" target="_blank">
+                            <i class="fas fa-phone-alt me-2"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision & Mission Section -->
+<section class="vision-mission py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Vision -->
+            <div class="col-md-6 fade-in">
+                <div class="card h-100 border-0 shadow-sm p-4">
+                    <div class="card-body text-center">
+                        <div class="icon-box bg-primary-light mb-4 mx-auto rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 80px; height: 80px;">
+                            <i class="fas fa-eye text-primary fa-2x"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Our Vision</h3>
+                        <p class="mb-0">To be the most trusted and preferred auto service provider in the region,
+                            recognized for our innovation, reliability, and commitment to customer satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission -->
+            <div class="col-md-6 fade-in" style="animation-delay: 0.2s;">
+                <div class="card h-100 border-0 shadow-sm p-4">
+                    <div class="card-body text-center">
+                        <div class="icon-box bg-primary-light mb-4 mx-auto rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 80px; height: 80px;">
+                            <i class="fas fa-bullseye text-primary fa-2x"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Our Mission</h3>
+                        <p class="mb-0">To provide exceptional automotive services using cutting-edge technology and
+                            skilled technicians, while maintaining the highest standards of honesty, integrity, and
+                            environmental responsibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="projects-section py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5 fade-in">
+            <h2 class="section-title">Our Recent Work</h2>
+            <p class="lead">Check out some of our latest projects</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 fade-in" style="animation-delay: 0.1s;">
+                <div class="project-card card h-100 border-0 shadow-sm">
+                    <img src="{% static 'images/work-1.jpg' %}" class="card-img-top" alt="Engine Repair">
+                    <div class="card-body">
+                        <h3 class="h5">Engine Repair</h3>
+                        <p class="text-muted">Auto Repair</p>
+                        <a href="{% url 'services' %}" class="btn btn-sm btn-primary" target="_blank">View Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in" style="animation-delay: 0.2s;">
+                <div class="project-card card h-100 border-0 shadow-sm">
+                    <img src="{% static 'images/work-2.jpg' %}" class="card-img-top" alt="Car Tyre Change">
+                    <div class="card-body">
+                        <h3 class="h5">Car Tyre Change</h3>
+                        <p class="text-muted">Auto Repair</p>
+                        <a href="{% url 'services' %}" class="btn btn-sm btn-primary" target="_blank">View Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in" style="animation-delay: 0.3s;">
+                <div class="project-card card h-100 border-0 shadow-sm">
+                    <img src="{% static 'images/work-3.jpg' %}" class="card-img-top" alt="Battery Adjust">
+                    <div class="card-body">
+                        <h3 class="h5">Battery Adjust</h3>
+                        <p class="text-muted">Auto Repair</p>
+                        <a href="{% url 'services' %}" class="btn btn-sm btn-primary" target="_blank">View Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .icon-box {
+        background-color: rgba(230, 57, 70, 0.1);
+    }
+
+    .vision-mission .card {
+        transition: transform 0.3s ease;
+    }
+
+    .vision-mission .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-item {
+        transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}
