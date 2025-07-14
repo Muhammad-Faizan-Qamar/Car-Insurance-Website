@@ -1,2 +1,1 @@
-**Car Insurance Website**
 🚗💻 A frontend-only Car Insurance Website built using HTML, CSS, JavaScript, and Django Template Inheritance. No backend logic—purely static pages rendered via Django. Demonstrates clean layout, responsive UI, and modular template structure for scalable frontend design. 💻📱 #HTML #CSS #JavaScript #CarInsurance #FrontendDevelopment #Django.
